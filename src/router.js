@@ -1,0 +1,51 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+
+Vue.use(Router)
+
+export default new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
+		{
+      path: '/index.html',
+      name: 'home',
+      component: () => import( './views/MainPage.vue')
+	},
+    {
+      path: '/',
+      name: 'home',
+      component: () => import( './views/MainPage.vue')
+	},
+	{
+		path: '/login',
+		name: 'home',
+		component: () => import( './views/Login.vue')
+	},
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import( './views/About.vue')
+    },
+    {
+      path: '/home-detail',
+      name: 'HomeDetail',
+      component: () => import('./views/RenterHomeDetail.vue')
+	},
+	{
+		path: '/home-detail/clusters',
+		name: 'Clusters',
+		component: () => import('./views/Clusters.vue')
+	},
+	{
+		path: '/home-detail/smart-home',
+		name: 'SmartHome',
+		component: () => import('./views/SmartHomeNav.vue')
+	},
+	{
+		path: '/home-detail/clusters/devices',
+		name: 'Devices',
+		component: () => import('./views/DeviceList.vue')
+	}
+  ]
+})
