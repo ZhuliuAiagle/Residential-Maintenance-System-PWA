@@ -23,11 +23,6 @@ export default new Router({
 		component: () => import( './views/Login.vue')
 	},
     {
-      path: '/about',
-      name: 'about',
-      component: () => import( './views/About.vue')
-    },
-    {
       path: '/home-detail',
       name: 'HomeDetail',
       component: () => import('./views/RenterHomeDetail.vue')

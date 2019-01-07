@@ -7,13 +7,15 @@
 						<md-button class="md-icon-button" @click="menuVisible = !menuVisible">
 						<md-icon>menu</md-icon>
 						</md-button>
-
-						<span class="md-title">HouseHub</span>
+						<img src="../assets/house_repair_w.png" style="width:20px"/>
+						<span class="md-title all-title">HouseHub</span>
 					</div>
 					<div class="md-toolbar-section-end">
-						<md-button class="md-icon-button">
-						<md-icon>more_vert</md-icon>
-						</md-button>
+						<md-badge class="md-primary" md-content="12">
+							<md-button class="md-icon-button">
+									<md-icon>mail_outline</md-icon>
+							</md-button>
+						</md-badge>
 					</div>
 					</div>
 					<div class="md-toolbar-row">
@@ -26,12 +28,18 @@
 					</div>
 			</md-app-toolbar>
 			<md-app-drawer :md-active.sync="menuVisible">
-					<md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
+					<md-toolbar class="md-transparent" md-elevation="0">Settings</md-toolbar>
 						<md-list>
+							<md-list-item>
+								<img src="../assets/house_repair.png" style="width: 100px; margin-left: 30px"/>
+							</md-list-item>
+							<br/>
+							<md-divider></md-divider>
+							<br/>
 						<router-link to="/login">
 							<md-list-item v-if="!isLogin">
 								<md-icon>person</md-icon>
-								<span class="md-list-item-text">Login</span>
+								<span class="md-list-item-text">Sign In</span>
 							</md-list-item>
 						</router-link>
 						<md-list-item v-if="isLogin">
@@ -47,6 +55,9 @@
 			<md-app-content v-if="isLogin">
 					<component v-bind:is="currentTabComponent"></component>
 			</md-app-content>
+			<md-app-content v-if="!isLogin">
+					<no-login></no-login>
+			</md-app-content>
 		</md-app>
     </div>
 </template>
@@ -58,6 +69,7 @@ import Scroll from './Scroll.vue'
 import HomeList from './HomeList.vue'
 import HouseList from './HouseList.vue'
 import OrderList from './OrderList.vue'
+import NoLogin from './NoLogin.vue'
 
 export default {
 	name: "MainPage",
@@ -65,7 +77,8 @@ export default {
 		Scroll,
 		HomeList,
 		HouseList,
-		OrderList
+		OrderList,
+		NoLogin
 	},
 	data: () => ({
 		menuVisible: false,
@@ -116,8 +129,9 @@ export default {
   margin-right: 0px !important;
 }
  .md-toolbar.md-theme-default.md-primary{
-    background-image: url("../assets/JShine.jpg");
+    background-image: url("../assets/Amin.jpg");
     background-repeat: no-repeat;
+	background-size:100%;
 }
 .md-tabs.md-theme-default.md-primary .md-tabs-navigation{
 	background-color: transparent;

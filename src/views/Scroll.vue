@@ -1,61 +1,50 @@
 <template>
-  <div>
-        <br/>
-        <div class = "main-title" style="margin-left: 15px; margin-right: 15px">
-          <p style="font-size:30px;"><strong>Hi, Jackie</strong></p>
-        </div>
-		<md-card class="md-accent alert-card md-elevation-13" md-with-hover>
-          <md-card-header class="md-layout">
-			<div class="md-layout-item-4">
-				<img src="../assets/frown.png" style="width: 50px">
-			</div>
-			<div class="md-layout-item-8">
-				<div class="md-title danger-title" >2 items in danger!</div>
-			</div>
-          </md-card-header>
-        </md-card>
-        <br/>
-        <md-card class = "md-primary weather-card md-elevation-10" md-with-hover>
-          <md-card-header>
-            <md-card-header-text>
-              <div class="md-title">Washington DC</div>
-              <div class="md-subhead">48 ~ 34°F</div>
-            </md-card-header-text>
-            <md-card-media md-medium>
-              <img src="../assets/sun_transparent.png" alt="People">
-            </md-card-media>
-          </md-card-header>
+  <transition name="fade">
+    <div>
+          <br/>
+          <br/>
+          <md-card class = "md-primary weather-card md-elevation-10" md-with-hover>
+            <md-card-header>
+              <md-card-header-text>
+                <div class="md-title">Washington DC</div>
+                <div class="md-subhead">48 ~ 34°F</div>
+              </md-card-header-text>
+              <md-card-media md-medium>
+                <img src="../assets/sun_transparent.png" alt="People">
+              </md-card-media>
+            </md-card-header>
 
-          <md-card-actions>
-            <!-- <md-button>Action</md-button>
-            <md-button>Action</md-button> -->
-          </md-card-actions>
-        </md-card>
-        <br/>
-        <md-card class="md-primary ac-card md-elevation-13">
-          <md-card-header>
-            <div class="md-title">Smart-Home Devices</div>
-          </md-card-header>
-          <md-card-content>
-            <md-card-media>
-              <div class="md-layout" :class="md-alignment-center">
-                  <div class="md-layout-item ac-img">
-                    <div>
-                      <img src="../assets/aircon_active.png" style="width: 100px"/>
-                    </div> 
-                  </div>
-                  <div class="md-layout-item" style = "text-align: center">
-                    <p style="font-size:50px; font-weight:bold">79°</p>
-                    <p>STATUS: Heating</p>
-                  </div>
-              </div>
-            </md-card-media>
-          </md-card-content>
-          <md-card-actions>
-            <md-button>MORE</md-button>
-          </md-card-actions>
-        </md-card>
-  </div>
+            <md-card-actions>
+              <!-- <md-button>Action</md-button>
+              <md-button>Action</md-button> -->
+            </md-card-actions>
+          </md-card>
+          <br/>
+          <md-card class="md-primary ac-card md-elevation-13">
+            <md-card-header>
+              <div class="md-title">Smart-Home Devices</div>
+            </md-card-header>
+            <md-card-content>
+              <md-card-media>
+                <div class="md-layout" :class="md-alignment-center">
+                    <div class="md-layout-item ac-img">
+                      <div>
+                        <img src="../assets/aircon_active.png" style="width: 100px"/>
+                      </div> 
+                    </div>
+                    <div class="md-layout-item" style = "text-align: center">
+                      <p style="font-size:50px; font-weight:bold">79°</p>
+                      <p>STATUS: Heating</p>
+                    </div>
+                </div>
+              </md-card-media>
+            </md-card-content>
+            <md-card-actions>
+              <md-button>MORE</md-button>
+            </md-card-actions>
+          </md-card>
+    </div>
+  </transition>
 </template>
 
 <style lang="scss" scoped>
@@ -73,14 +62,14 @@
   margin-right: 0px !important;
   }
   .md-card.md-theme-default.md-primary.weather-card{
-    background-image: url("../assets/JShine.jpg");
+    background-image: url("../assets/Amin.jpg");
     background-repeat: no-repeat;
-	//background-size:200%
+    background-size:100%;
   }
   .md-card.md-theme-default.md-primary.ac-card{
-    background-image: url("../assets/JShine.jpg");
+    background-image: url("../assets/Amin.jpg");
     background-repeat: no-repeat;
-	//background-size:200%
+    background-size:200%;
   }
   .danger-title {
 	margin-left: 50px;
@@ -88,6 +77,12 @@
 	display: flex;
     align-items: center;
   }
+.fade-enter-active{
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
 
 <script>

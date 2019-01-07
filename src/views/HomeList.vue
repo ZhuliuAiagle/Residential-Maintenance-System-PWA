@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <house-omit></house-omit>
-    </div>
+      <div>
+          <nothing v-if="house_count == 0"></nothing>
+          <house-omit v-if="house_count"></house-omit>
+      </div>
 </template>
 
 <style lang="scss" scoped>
@@ -18,14 +19,16 @@
 
 <script>
 import HouseOmit from '../components/HouseOmit.vue'
+import Nothing from '../components/Nothing.vue'
 
 export default {
   name: 'HomeList',
   components:{
-    HouseOmit
+    HouseOmit,
+    Nothing
   },
   data: () => ({
-    menuVisible: false,
+    house_count : 0
   }),
   // 计算当前窗口的高度并进行设备适配
   methods:{
@@ -35,3 +38,7 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>

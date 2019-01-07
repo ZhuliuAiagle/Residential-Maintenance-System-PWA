@@ -1,18 +1,10 @@
 <template>
-    <div>
-        <br/>
-          <md-card>
-              <md-card-header>
-                  <md-card-header-text>
-                  <div class="md-title">Zhongnanhai</div>
-                  <div class="md-subhead">Chang'an Avenue, Beijing</div>
-                  </md-card-header-text>
-                  <md-card-media>
-                  <img src="../assets/wst.jpg" alt="Avatar">
-                  </md-card-media>
-              </md-card-header>
-          </md-card>
-    </div>
+    <transition name="fade">
+      <div>
+          <nothing v-if="house_count == 0"></nothing>
+          <house-omit v-for="(item,index) in house_list" :house_nick = "item" :key = "index"></house-omit>
+      </div>
+    </transition>
 </template>
 
 <style lang="scss" scoped>
@@ -28,11 +20,28 @@
 </style>
 
 <script>
+import HouseOmit from '../components/HouseOmit.vue'
+import Nothing from '../components/Nothing.vue'
+
 export default {
   name: 'HouseList',
+  components:{
+    HouseOmit,
+    Nothing
+  },
   data: () => ({
     menuVisible: false,
+    house_count: 1,
+    house_list:[
+      "shit",
+      "funck",
+      "bub",
+      "nimabi"
+    ]
   }),
+  created: function(){
+    
+  },
   // 计算当前窗口的高度并进行设备适配
   methods:{
     currentWindowHeights: function(){
@@ -41,3 +50,13 @@ export default {
   }
 }
 </script>
+
+
+<style>
+.fade-enter-active .fade-leave-active{
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>

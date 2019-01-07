@@ -1,20 +1,6 @@
 <template>
     <div>
-        <br/>
-          <md-card>
-              <md-card-header>
-                <md-card-header-text>
-                <div class="md-title">Air-Conditioner</div>
-                <div class="md-subhead">ID: 45646</div>
-                <div class="md-subhead">House: White House</div>
-                <div class="md-subhead">Room: Kids' Bedroom</div>
-                <div class="md-subhead">status: Repairing</div>
-                </md-card-header-text>
-                <md-card-media md-medium>
-              <img src="../assets/repair.png" alt="People">
-            </md-card-media>
-              </md-card-header>
-          </md-card>
+        <order-omit v-for="(item, index) in orderList" :device_name = "item"  :key = "index"></order-omit>
     </div>
 </template>
 
@@ -31,11 +17,20 @@
 </style>
 
 <script>
-
+import OrderOmit from '../components/OrderOmit.vue'
 export default {
   name: 'OrderList',
+  components : {
+    OrderOmit
+  },
   data: () => ({
     menuVisible: false,
+    orderList:[
+      "fuck",
+      "shit",
+      "holyshit",
+      "jinboshabi"
+    ]
   }),
   // 计算当前窗口的高度并进行设备适配
   methods:{
