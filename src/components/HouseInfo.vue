@@ -1,11 +1,10 @@
 <template>
     <div>
-        <md-app :md-scrollbar = "false" md-waterfall md-mode="fixed" v-bind:style="{'height':currentWindowHeights() + 'px', border: '1px 1px solid rgba(#000, .12)'}">
-        <md-app-toolbar>
+        <md-toolbar class="fix">
 		<div class="md-toolbar-row">
 			<div class="md-toolbar-section-start">
 				<router-link to="/">
-					<md-button class="md-icon-button" @click = "$router.go(-1)">
+					<md-button class="md-icon-button"  @click="$router.go(-1)">
 						<md-icon>keyboard_arrow_left</md-icon>
 					</md-button>
 				</router-link>
@@ -17,9 +16,11 @@
 				</md-button>
 			</div>
 		</div>
-		</md-app-toolbar>
-		<md-app-content>
+		</md-toolbar>
+		<md-content>
+        
 		<div class="sweet-home">
+            <div style="height:80px"></div>
 			<md-card>
 				<md-card-media-cover md-solid>
 				<md-card-media md-ratio="16:9">
@@ -30,7 +31,7 @@
 				<md-card class = "md-primary">
 				<md-card-header>
 					<md-card-header-text>
-					<div class="md-title">White House</div>
+					<div class="md-title">{{house_name}}</div>
 					<div class="md-subhead">1600 Pennsylvania Ave NW, Washington, DC 20500</div>
 					</md-card-header-text>
 				</md-card-header>
@@ -46,7 +47,7 @@
                 <md-list-item>
                     <md-icon class="md-primary">person</md-icon>
                     <div class="md-list-item-text">
-                    <span>Donald Trump</span>
+                    <span>{{owner}}</span>
                     <span>Representative</span>
                     </div>
                 </md-list-item>
@@ -55,24 +56,22 @@
                 <md-list-item>
                     <md-icon class="md-primary">person</md-icon>
                     <div class="md-list-item-text">
-                    <span>Jackie Chan (Me)</span>
+                    <span>{{renter}}</span>
                     <span>Representative</span>
                     </div>
                 </md-list-item>
                 <md-divider></md-divider>
                 <md-subheader>House Management</md-subheader>
-                <router-link to="/home-detail/clusters">
-                    <md-list-item>
-                        <md-icon class="md-primary">apps</md-icon>
-                        <div class="md-list-item-text">
-                        <span>Facilities</span>
-                        </div>
-                        <md-button class="md-icon-button md-list-action">
-                        <md-icon>keyboard_arrow_right</md-icon>
-                        </md-button>
-                    </md-list-item>
-                </router-link>
-                <router-link to="/home-detail/smart-home">
+                <md-list-item>
+                    <md-icon class="md-primary">apps</md-icon>
+                    <div class="md-list-item-text">
+                    <span>Facilities</span>
+                    </div>
+                    <md-button class="md-icon-button md-list-action" @click="$router.push('/home-detail/'+houseID+'/clusters')">
+                    <md-icon>keyboard_arrow_right</md-icon>
+                    </md-button>
+                </md-list-item>
+                <router-link to="/smart-home">
                     <md-list-item>
                         <md-icon class="md-primary">adb</md-icon>
                         <div class="md-list-item-text">
@@ -83,7 +82,7 @@
                         </md-button>
                     </md-list-item>
                 </router-link>
-                <router-link to="/home-detail/clusters">
+                <router-link to="/clusters">
                     <md-list-item>
                         <md-icon class="md-primary">build</md-icon>
                         <div class="md-list-item-text">
@@ -94,7 +93,7 @@
                         </md-button>
                     </md-list-item>
                 </router-link>
-                <router-link to="/home-detail/#">
+                <router-link to="/#">
                     <md-list-item>
                         <md-icon class="md-primary">book</md-icon>
                         <div class="md-list-item-text">
@@ -109,8 +108,7 @@
             <md-divider></md-divider>
             <br/>
 		</div>
-		</md-app-content>
-        </md-app>
+		</md-content>
     </div>
 </template>
 
@@ -118,9 +116,26 @@
 <script>
 export default {
     name:"HouseInfo",
+    props: {
+        houseID: String
+    },
     data: () => ({
-        
+        house_name: "",
+        owner: "",
+        renter: ""
     }),
+    created: function() {
+        if(this.houseID == "white-house"){
+            this.house_name =  "white house"
+            this.owner = "donald trump"
+            this.renter = "shenzijin"
+        }
+        else{
+            this.house_name =  "default name"
+            this.owner = "default name"
+            this.renter = "default name"
+        }
+    },
     methods:{
     currentWindowHeights: function(){
       return window.innerHeight.toString()
@@ -130,10 +145,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	.md-app-content .md-card{
-		margin-left: 0px !important;
-		margin-right: 0px !important;
+	.md-card{
+		margin-left: 20px !important;
+		margin-right:20px !important;
 	}
+    .fix{
+        position:fixed
+    }
+    .md-toolbar.fix.md-theme-default{
+        background-color: var(--md-theme-default-toolbarvariant, #ffffff);
+    }
 </style>
 
 

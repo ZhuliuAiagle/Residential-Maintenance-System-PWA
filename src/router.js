@@ -23,22 +23,22 @@ export default new Router({
 		component: () => import( './views/Login.vue')
 	},
     {
-      path: '/home-detail',
+      path: '/home-detail/:id',
       name: 'HomeDetail',
       component: () => import('./views/RenterHomeDetail.vue')
 	},
 	{
-		path: '/home-detail/clusters',
+		path: '/home-detail/:id/clusters',
 		name: 'Clusters',
 		component: () => import('./views/Clusters.vue')
 	},
 	{
-		path: '/home-detail/smart-home',
+		path: '/home-detail/:id/smart-home',
 		name: 'SmartHome',
 		component: () => import('./views/SmartHomeNav.vue')
 	},
 	{
-		path: '/home-detail/clusters/devices',
+		path: '/home-detail/:id/clusters/devices',
 		name: 'Devices',
 		component: () => import('./views/DeviceList.vue')
 	}

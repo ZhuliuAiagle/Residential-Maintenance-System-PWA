@@ -1,7 +1,6 @@
 <template>
 <div class="page-container">
-	<md-app :md-scrollbar = "false" md-waterfall md-mode="fixed" v-bind:style="{'height':currentWindowHeights() + 'px', border: '1px 1px solid rgba(#000, .12)'}">
-				<md-app-toolbar>
+	<md-toolbar class="fix">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
             <router-link to="/home-detail/">
@@ -24,8 +23,9 @@
             </md-button>
           </div>
         </div>
-        </md-app-toolbar>
-		<md-app-content>
+        </md-toolbar>
+		<md-content>
+            <div style="height: 80px"></div>
             <div class="sweet-home">
                 <md-list class="md-double-line">
                     <md-list-item>
@@ -126,23 +126,23 @@
                     md-content = "Successfully Create New Cluster"
                     md-confirm-text="Done" @md-confirm = "newNameSubmit = false; editState = false"/>
             </div>
-		</md-app-content>
-	</md-app>
+		</md-content>
 </div>
 </template>
 
 <style lang="scss" scoped>
-.md-app-content .md-card{
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    text-align: center;
-}
 .md-dialog {
     width: 250px;
     height:250px;
 }
 .warning-margin {
     margin: 20px
+}
+.fix{
+    position:fixed
+}
+.md-toolbar.fix.md-theme-default{
+        background-color: #ffffff;
 }
 </style>
 

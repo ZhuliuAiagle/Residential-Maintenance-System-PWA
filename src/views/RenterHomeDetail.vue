@@ -1,6 +1,6 @@
 <template>
 <div class="page-container">
-		<HouseInfo></HouseInfo>
+		<HouseInfo :houseID = '$route.params.id'></HouseInfo>
 </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
   methods:{
     currentWindowHeights: function(){
       return window.innerHeight.toString()
-    }
+		}
   }
 }
 </script>
