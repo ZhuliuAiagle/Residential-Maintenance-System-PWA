@@ -1,4 +1,4 @@
-# my-app
+# Residential maintenance system PWA
 
 ## Project setup
 ```
