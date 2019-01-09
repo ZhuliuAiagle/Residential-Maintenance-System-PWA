@@ -20,7 +20,7 @@
 		<md-content>
         
 		<div class="sweet-home">
-            <div style="height:80px"></div>
+            <div style="height:40px"></div>
 			<md-card>
 				<md-card-media-cover md-solid>
 				<md-card-media md-ratio="16:9">
@@ -146,8 +146,8 @@ export default {
 
 <style lang="scss" scoped>
 	.md-card{
-		margin-left: 20px !important;
-		margin-right:20px !important;
+		margin-left: 0px !important;
+		margin-right:0px !important;
 	}
     .fix{
         position:fixed

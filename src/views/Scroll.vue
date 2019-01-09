@@ -39,9 +39,6 @@
                 </div>
               </md-card-media>
             </md-card-content>
-            <md-card-actions>
-              <md-button>MORE</md-button>
-            </md-card-actions>
           </md-card>
     </div>
   </transition>
@@ -77,12 +74,6 @@
 	display: flex;
     align-items: center;
   }
-.fade-enter-active{
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 </style>
 
 <script>

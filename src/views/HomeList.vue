@@ -30,6 +30,9 @@ export default {
   data: () => ({
     house_count : 0
   }),
+  created: () => ({
+  
+  }),
   // 计算当前窗口的高度并进行设备适配
   methods:{
     currentWindowHeights: function(){

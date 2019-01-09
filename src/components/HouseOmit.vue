@@ -1,6 +1,6 @@
 <template>
         <div>
-            <br/>
+            <div style="height:10px"></div>
                 <router-link to="/home-detail/white-house">
                     <md-card class = "md-primary house-card md-elevation-6">
                         <md-card-header>
@@ -34,7 +34,7 @@ export default {
 
 <style>
 img{
-    width: 70%;    
+    width: 140%;    
 }
 .md-card.md-primary.house-card.md-theme-default{
     background-image:url("../assets/Amin.jpg");

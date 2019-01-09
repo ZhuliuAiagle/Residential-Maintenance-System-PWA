@@ -85,6 +85,8 @@
 <script>
 export default {
 	name: 'Login',
+	components:{
+	},
 	data: () => ({
 		menuVisible: false,
         houseName: "White House",

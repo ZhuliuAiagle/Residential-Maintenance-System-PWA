@@ -1,6 +1,6 @@
 <template>
-    <div class="page-container">
-			<md-toolbar class="md-large md-dense md-primary md-elevation-13 fix" md-mode="fixed">
+    <div>
+			<md-toolbar class="md-large md-dense md-primary md-elevation-13 fix">
 				<div class="md-toolbar-row">
 				<div class="md-toolbar-section-start">
 					<md-button class="md-icon-button" @click="menuVisible = !menuVisible">
@@ -26,7 +26,7 @@
 					</md-tabs>
 				</div>
 			</md-toolbar>
-			<md-drawer :md-active.sync="menuVisible">
+			<md-drawer :md-active.sync="menuVisible" class="fix">
 					<md-toolbar class="md-transparent" md-elevation="0">Settings</md-toolbar>
 						<md-list>
 							<md-list-item>
@@ -59,7 +59,9 @@
 				<div v-if="!isLogin">
 					<no-login></no-login>
 				</div>
+				<div style="height: 100px"></div>
 			</md-content>
+			<!-- <BarRouter></BarRouter>	 -->
     </div>
 </template>
 
@@ -71,6 +73,7 @@ import HomeList from './HomeList.vue'
 import HouseList from './HouseList.vue'
 import OrderList from './OrderList.vue'
 import NoLogin from './NoLogin.vue'
+import BarRouter from '../components/BottomBar.vue'
 
 export default {
 	name: "MainPage",
@@ -79,7 +82,8 @@ export default {
 		HomeList,
 		HouseList,
 		OrderList,
-		NoLogin
+		NoLogin,
+		BarRouter
 	},
 	data: () => ({
 		menuVisible: false,
@@ -127,8 +131,8 @@ export default {
     max-width: calc(100vw - 125px);
 }
 .md-card{
-  margin-left: 20px !important;
-  margin-right: 20px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
 }
  .md-toolbar.md-theme-default.md-primary{
     background-image: url("../assets/Amin.jpg");
@@ -142,6 +146,6 @@ export default {
 	position:fixed;
 }
 .fill{
-	height: 120px
+	height: 100px
 }
 </style>

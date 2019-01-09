@@ -1,10 +1,10 @@
 <template>
-<div class="page-container">
+<div>
 	<md-toolbar class="fix">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
             <router-link to="/home-detail/">
-                <md-button class="md-icon-button" @click="$router.go(-1)">
+                <md-button class="md-icon-button" @click="$router.push(-1)">
                 <md-icon>keyboard_arrow_left</md-icon>
                 </md-button>
             </router-link>
@@ -138,12 +138,14 @@
 .warning-margin {
     margin: 20px
 }
-.fix{
-    position:fixed
-}
 .md-toolbar.fix.md-theme-default{
-        background-color: #ffffff;
+    background-color: #ffffff;
 }
+.fix{
+    position:fixed;
+    z-index: 100;
+}
+
 </style>
 
 <script>
