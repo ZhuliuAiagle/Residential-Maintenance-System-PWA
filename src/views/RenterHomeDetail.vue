@@ -1,6 +1,6 @@
 <template>
 <div class="page-container">
-		<HouseInfo :houseID = '$route.params.id'></HouseInfo>
+		<HouseInfo></HouseInfo>
 </div>
 </template>
 

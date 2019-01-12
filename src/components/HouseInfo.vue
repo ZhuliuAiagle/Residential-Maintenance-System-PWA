@@ -4,7 +4,7 @@
 		<div class="md-toolbar-row">
 			<div class="md-toolbar-section-start">
 				<router-link to="/">
-					<md-button class="md-icon-button"  @click="$router.go(-1)">
+					<md-button class="md-icon-button"  @click="$router.push('/')">
 						<md-icon>keyboard_arrow_left</md-icon>
 					</md-button>
 				</router-link>
@@ -31,33 +31,27 @@
 				<md-card class = "md-primary">
 				<md-card-header>
 					<md-card-header-text>
-					<div class="md-title">{{house_name}}</div>
-					<div class="md-subhead">1600 Pennsylvania Ave NW, Washington, DC 20500</div>
+					<div class="md-title">{{$root.$house_name}}</div>
+					<div class="md-subhead">{{$root.$house_address}}</div>
 					</md-card-header-text>
 				</md-card-header>
-				<md-card-actions>
-					<!-- <md-button>Action</md-button>
-					<md-button>Action</md-button> -->
-				</md-card-actions>
 			</md-card>
 			<br/>
 			<md-list class="md-double-line">
                 <md-divider></md-divider>
                 <md-subheader>Owner</md-subheader>
-                <md-list-item>
+                <md-list-item v-if="$root.$house_owner!=''">
                     <md-icon class="md-primary">person</md-icon>
                     <div class="md-list-item-text">
-                    <span>{{owner}}</span>
-                    <span>Representative</span>
+                    <span>{{$root.$house_owner}}</span>
                     </div>
                 </md-list-item>
                 <md-divider></md-divider>
                 <md-subheader>Renter</md-subheader>
-                <md-list-item>
+                <md-list-item v-if="$root.$role != 'Landlord'">
                     <md-icon class="md-primary">person</md-icon>
                     <div class="md-list-item-text">
-                    <span>{{renter}}</span>
-                    <span>Representative</span>
+                    <span>N/A</span>
                     </div>
                 </md-list-item>
                 <md-divider></md-divider>
@@ -67,7 +61,7 @@
                     <div class="md-list-item-text">
                     <span>Facilities</span>
                     </div>
-                    <md-button class="md-icon-button md-list-action" @click="$router.push('/home-detail/'+houseID+'/clusters')">
+                    <md-button class="md-icon-button md-list-action" @click="nextCluster()">
                     <md-icon>keyboard_arrow_right</md-icon>
                     </md-button>
                 </md-list-item>
@@ -76,17 +70,6 @@
                         <md-icon class="md-primary">adb</md-icon>
                         <div class="md-list-item-text">
                         <span>Smart Home</span>
-                        </div>
-                        <md-button class="md-icon-button md-list-action">
-                        <md-icon>keyboard_arrow_right</md-icon>
-                        </md-button>
-                    </md-list-item>
-                </router-link>
-                <router-link to="/clusters">
-                    <md-list-item>
-                        <md-icon class="md-primary">build</md-icon>
-                        <div class="md-list-item-text">
-                        <span>Maintaining</span>
                         </div>
                         <md-button class="md-icon-button md-list-action">
                         <md-icon>keyboard_arrow_right</md-icon>
@@ -117,29 +100,20 @@
 export default {
     name:"HouseInfo",
     props: {
-        houseID: String
+        
     },
     data: () => ({
-        house_name: "",
-        owner: "",
-        renter: ""
+        
     }),
     created: function() {
-        if(this.houseID == "white-house"){
-            this.house_name =  "white house"
-            this.owner = "donald trump"
-            this.renter = "shenzijin"
-        }
-        else{
-            this.house_name =  "default name"
-            this.owner = "default name"
-            this.renter = "default name"
-        }
+
     },
     methods:{
-    currentWindowHeights: function(){
-      return window.innerHeight.toString()
-        }
+    nextCluster: function(){
+        this.$router.push({
+            name: 'Clusters'
+        })
+    }
     }
 }
 </script>

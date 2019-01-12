@@ -40,7 +40,7 @@
 				</md-button>
 			</md-card-actions>
 			<br/>
-			<a href="#">Forgot password?</a>
+			<a href="#">No Account? Sign Up</a>
 			<br/>
 			<br/>
 		</md-card>
@@ -107,7 +107,8 @@ export default {
 		login:function(){
 			var pas = this.password;
 			var usr = this.user;
-			localStorage.setItem(usr, pas);
+			localStorage.setItem("username", usr);
+			localStorage.setItem("password",pas);
 			this.$router.push('/');
 		}
   }

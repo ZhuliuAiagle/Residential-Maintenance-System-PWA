@@ -4,35 +4,48 @@
         <md-card class = "md-primary md-elevation-10 repair-card">
             <md-card-header>
             <md-card-header-text>
-                <div class="md-title">{{device_name}}</div>
-                <div class="md-subhead">ID: 45646</div>
-                <div class="md-subhead">House: White House</div>
-                <div class="md-subhead">Room: Kids' Bedroom</div>
-                <div class="md-subhead">status: Repairing</div>
+                <div class="md-title">Order {{order_id}}</div>
+                <div class="md-subhead">House: {{house_id}}</div>
+                <div class="md-subhead">Device: {{facility_id}}</div>
+                <div class="md-subhead">status: {{status}}</div>
             </md-card-header-text>
             <md-card-media md-medium>
                 <img src="../assets/Repair.png" alt="People">
             </md-card-media>
             </md-card-header>
-            <md-card-actions>
-                <md-button v-if="isFinished" class="">rate</md-button>
-            </md-card-actions>
+            <!-- <md-card-actions>
+                <md-button v-if="isFinish" class="md-raised md-accent" @click="rateState = true">rate</md-button>
+            </md-card-actions> -->
         </md-card>
     </div>
 </template>
 
 
 <script>
+import axios from 'axios'
 export default {
     name: "OrderOmit",
     props:{
-        device_name: String
+        order_id: String,
+        house_id: String,
+        facility_id: String,
+        status: String
     },
     data: () => ({
-        isFinished: false
+       house_name: "",
+       facility_name : "",
+       rateState: false
     }),
+    created: function(){
+       
+    },
     methods:{
-
+        
+    },
+    computed:{
+        isFinish: function(){
+            return this.status == "Completed" ? true : false
+        }
     }
 }
 </script>

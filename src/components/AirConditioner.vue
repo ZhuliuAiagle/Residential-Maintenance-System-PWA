@@ -4,13 +4,13 @@
 			<md-app-toolbar>
 					<div class="md-toolbar-row">
 						<div class="md-toolbar-section-start">
-							<md-button class="md-icon-button">
+							<md-button class="md-icon-button"  @click="$router.go(-1)">
 								<md-icon>keyboard_arrow_left</md-icon>
 							</md-button>
 							<span class="md-title">House Details</span>
 						</div>
 						<div class="md-toolbar-section-end">
-							<md-button class="md-icon-button"  @click="$router.go('/')">
+							<md-button class="md-icon-button"  @click="$router.push('/')">
 								<md-icon>home</md-icon>
 							</md-button>
 						</div>
@@ -35,10 +35,10 @@
 						<div class="md-list-item-text">
 							<div class = "md-headline">{{temper}}°F</div>
 						</div>
-						<md-button class="md-icon-button md-primary md-raised">
+						<md-button class="md-icon-button md-primary md-raised" @click="minus()">
 							<md-icon>remove</md-icon>
 						</md-button>
-						<md-button class="md-icon-button md-primary md-raised">
+						<md-button class="md-icon-button md-primary md-raised" @click="add()">
 							<md-icon>add</md-icon>
 						</md-button>
 					</md-list-item>
@@ -72,14 +72,20 @@ export default {
 		menuVisible: false,
 		houseName: "White House",
 		boolean: true,
-		temper: 76,
-		ratio: 'colder'
+		temper: 79,
+		ratio: 'heater'
   }),
   // 计算当前窗口的高度并进行设备适配
   methods:{
     currentWindowHeights: function(){
       return window.innerHeight.toString()
-    }
+	},
+	add: function(){
+		if(this.temper < 90) this.temper+=1
+	},
+	minus: function(){
+		if(this.temper > 60) this.temper-=1
+	}
   }
 }
 </script>

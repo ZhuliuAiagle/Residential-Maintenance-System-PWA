@@ -10,9 +10,9 @@
 					<span class="md-title all-title">HouseHub</span>
 				</div>
 				<div class="md-toolbar-section-end">
-					<md-badge class="md-primary" md-content="12">
+					<md-badge class="md-primary" md-content="3" v-if="isLogin">
 						<md-button class="md-icon-button">
-								<md-icon>mail_outline</md-icon>
+								<md-icon>alarm</md-icon>
 						</md-button>
 					</md-badge>
 				</div>
@@ -43,7 +43,7 @@
 						</router-link>
 						<md-list-item v-if="isLogin">
 							<md-icon>person</md-icon>
-							<span class="md-list-item-text">Jackie Chan</span>
+							<span class="md-list-item-text">{{user}}</span>
 						</md-list-item>
 						<md-list-item v-if="isLogin" @click="logout()">
 							<md-icon>error</md-icon>
@@ -108,17 +108,21 @@ export default {
 			}
 		},
 		logout:function(){
-			localStorage.removeItem("jinboshabi");
+			localStorage.removeItem("username");
+			localStorage.removeItem("password");
 			this.$router.push("/login");
 		}
 	},
 	computed:{
 		isLogin: function(){
-			var usr = localStorage.getItem("jinboshabi");
+			var usr = localStorage.getItem("username");
 			if(usr != null){
 				return true;
 			}
 			return false;
+		},
+		user: function(){
+			return localStorage.getItem('username')
 		}
 	}
 }

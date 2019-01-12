@@ -20,13 +20,13 @@
             </md-card-actions>
           </md-card>
           <br/>
-          <md-card class="md-primary ac-card md-elevation-13">
+          <md-card class="md-primary ac-card md-elevation-13" @click.native="$router.push('/smart')">
             <md-card-header>
               <div class="md-title">Smart-Home Devices</div>
             </md-card-header>
             <md-card-content>
               <md-card-media>
-                <div class="md-layout" :class="md-alignment-center">
+                <div class="md-layout md-alignment-center">
                     <div class="md-layout-item ac-img">
                       <div>
                         <img src="../assets/aircon_active.png" style="width: 100px"/>
@@ -69,9 +69,9 @@
     background-size:200%;
   }
   .danger-title {
-	margin-left: 50px;
-	margin-top: 10px;
-	display: flex;
+    margin-left: 50px;
+    margin-top: 10px;
+    display: flex;
     align-items: center;
   }
 </style>

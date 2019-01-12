@@ -23,12 +23,12 @@ export default new Router({
 		component: () => import( './views/Login.vue')
 	},
     {
-      path: '/home-detail/:id',
-      name: 'HomeDetail',
+      path: '/home-detail/',
+			name: 'HomeDetail',
       component: () => import('./views/RenterHomeDetail.vue')
 	},
 	{
-		path: '/home-detail/:id/clusters',
+		path: '/home-detail/clusters',
 		name: 'Clusters',
 		component: () => import('./views/Clusters.vue')
 	},
@@ -38,9 +38,19 @@ export default new Router({
 		component: () => import('./views/SmartHomeNav.vue')
 	},
 	{
-		path: '/home-detail/:id/clusters/devices',
+		path: '/home-detail/clusters/devices',
 		name: 'Devices',
 		component: () => import('./views/DeviceList.vue')
+	},
+	{
+		path: '/smart',
+		name: 'Smart',
+		component: () => import('./views/SmartHomeNav.vue')
+	},
+	{
+		path: '/smart/ac01',
+		name: 'AC',
+		component: () => import('./components/AirConditioner.vue')
 	}
   ]
 })

@@ -10,7 +10,7 @@
             <span class="md-title">Smart Home</span>
           </div>
           <div class="md-toolbar-section-end">
-            <md-button class="md-icon-button" @click="$router.go('/')">
+            <md-button class="md-icon-button" @click="$router.push('/')">
               <md-icon>home</md-icon>
             </md-button>
           </div>
@@ -38,28 +38,7 @@
                 </md-card-content>
         </md-card>
         <br/>
-        <md-card class = "md-primary orange-primary"  md-with-hover>
-                <md-card-header>
-                    <div class="md-title">Air-Conditioner-2</div>
-                </md-card-header>
-                <md-card-content>
-                    <md-card-media>
-                    <div class="md-layout" :class="md-alignment-center">
-                        <div class="md-layout-item ac-img">
-                            <div>
-                            <img src="../assets/aircon_active.png" style="width: 100px"/>
-                            </div> 
-                        </div>
-                        <div class="md-layout-item" style = "text-align: center">
-                            <p style="font-size:50px; font-weight:bold">82°F</p>
-                            <p>STATUS: Heating</p>
-                        </div>
-                    </div>
-                    </md-card-media>
-                </md-card-content>
-        </md-card>
-        <br/>
-        <md-card class = "md-primary"  md-with-hover>
+        <md-card class = "md-primary"  md-with-hover @click.native="$router.push('/smart/ac01')">
                 <md-card-header>
                     <div class="md-title">Air-Conditioner-3</div>
                 </md-card-header>
@@ -72,8 +51,8 @@
                             </div> 
                         </div>
                         <div class="md-layout-item" style = "text-align: center">
-                            <p style="font-size:50px; font-weight:bold">76°F</p>
-                            <p>STATUS: Colding</p>
+                            <p style="font-size:50px; font-weight:bold">79°F</p>
+                            <p>STATUS: Heating</p>
                         </div>
                     </div>
                     </md-card-media>

@@ -1,19 +1,19 @@
 <template>
         <div>
             <div style="height:10px"></div>
-                <router-link to="/home-detail/white-house">
+                <div @click="nextPage()">
                     <md-card class = "md-primary house-card md-elevation-6">
                         <md-card-header>
                             <md-card-header-text>
-                            <div class="md-title">{{house_nick}}</div>
-                            <div class="md-subhead">1600 Pennsylvania Ave NW, Washington, DC 20500</div>
+                            <div class="md-title">{{house_name}}</div>
+                            <div class="md-subhead">{{house_address}}</div>
                             </md-card-header-text>
                             <md-card-media>
                             <img src="../assets/house.png" alt="Avatar">
                             </md-card-media>
                         </md-card-header>
                     </md-card>
-                </router-link>
+                </div>
         </div>
 </template>
 
@@ -22,13 +22,29 @@
 export default {
     name: "HouseOmit",
     props:{
-        house_nick: String
+        house_id: String,
+        house_name: String,
+        house_address:String,
+        house_owner:String,
+        house_renter: String,
+        role: String
     },
     data: () => ({
-        house_id:"default",
-        house_name:"default",
-        house_info:"default"
-    })
+        
+    }),
+    methods:{
+        nextPage : function(){
+            this.$root.$house_id = this.house_id
+            this.$root.$house_name = this.house_name
+            this.$root.$house_address = this.house_address
+            this.$root.$house_owner = this.house_owner
+            this.$root.$house_renter = this.house_renter
+            this.$root.$role = this.role
+            this.$router.push({
+                name: "HomeDetail"
+            })
+        }
+    }
 }
 </script>
 
